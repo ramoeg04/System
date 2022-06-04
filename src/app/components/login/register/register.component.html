@@ -1,0 +1,52 @@
+<body class="display">
+    <mat-card class="background">
+        <mat-card-content>
+            <img mat-card-image [src]="csf" class="img-fluid" alt="">
+            <!-- <h1 class="mt-2 mb-4">{{loginText.sesion}}</h1> -->
+            <form [formGroup]="loginForm">
+                <div class="row">
+                    <mat-form-field appearance="outline">
+                        <mat-label>{{loginText.text_email}}</mat-label>
+                        <input type="email" matInput formControlName="email" name="email" placeholder="Ingrese Email"
+                            autofocus>
+                        <mat-error ngxErrors="loginForm.email">
+                            <p ngxError="email"> {{loginText.email}}</p>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row mt-2">
+                    <mat-form-field appearance="outline">
+                        <mat-label>{{loginText.text_pass}}</mat-label>
+                        <input type="Password" matInput formControlName="password" name="password"
+                            placeholder="Ingrese Contraseña">
+                        <mat-error ngxErrors="loginForm.password">
+                            <p ngxError="minLength"> {{loginText.password}}</p>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="row mt-2">
+                    <mat-form-field appearance="outline">
+                        <mat-label>{{loginText.text_rol}}</mat-label>
+                        <mat-select formControlName="rol" name="rol"> 
+                            <mat-option value="valid">Valid option</mat-option>
+                            <mat-option value="invalid">Invalid option</mat-option>
+                            <mat-option>Limpiar</mat-option>
+                          </mat-select>
+                        <mat-error ngxErrors="loginForm.rol">
+                            <p ngxError="valid"> {{loginText.rol}}</p>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="mt-2 ml-3">
+                    <button mat-button class="fontPrincipal" (click)="login()">
+                        <mat-label style="font-size: 20px">{{loginText.text_send}}</mat-label>
+                    </button>
+                    <button mat-button class="fontPrincipal" routerLink="/home">
+                        <mat-label style="font-size: 20px">{{loginText.volver}}</mat-label>
+                    </button>
+                </div>
+            </form>
+
+        </mat-card-content>
+    </mat-card>
+</body>

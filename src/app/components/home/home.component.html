@@ -1,0 +1,32 @@
+<app-toolbar></app-toolbar>
+<mat-toolbar class="example-spacer background">
+
+  <!-- ADMIN -->
+  <mat-button-toggle-group appearance="legacy" *ngIf="rolUser === 'Admin'" [(ngModel)]="fontStyle">
+    <mat-button-toggle class="fontPrincipal" [value]="admin">{{admin}}</mat-button-toggle>
+    <mat-button-toggle class="fontPrincipal" [value]="votar">{{votar}}</mat-button-toggle>
+    <mat-button-toggle class="fontPrincipal" [value]="result">{{result}}</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <!-- USER -->
+  <mat-button-toggle-group appearance="legacy" *ngIf="rolUser === 'User'" [(ngModel)]="fontStyle">
+    <mat-button-toggle class="fontPrincipal" [value]="result">{{result}}</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <!-- JURAOD -->
+  <mat-button-toggle-group appearance="legacy" *ngIf="rolUser === 'Jurado'" [(ngModel)]="fontStyle">
+    <mat-button-toggle class="fontPrincipal" [value]="votar">{{votar}}</mat-button-toggle>
+  </mat-button-toggle-group>
+
+</mat-toolbar>
+
+<p *ngIf="fontStyle === 'Administrar'">
+  <app-admin-home></app-admin-home>
+</p>
+<p *ngIf="fontStyle === 'Votar'">fffff</p>
+<p *ngIf="fontStyle === 'Resultados'">jjjj</p>
+
+<div style="margin-top: 10%">
+  <app-footer></app-footer>
+</div>
+

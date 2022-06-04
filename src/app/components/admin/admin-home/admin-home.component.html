@@ -1,0 +1,6 @@
+
+<div class="wrapper mt-2">
+    <div *ngFor="let name of homeAdmin">
+        <button   mat-button class="fontSecundario" (click)=route(name.nombre)>{{name.nombre}}</button>
+    </div>
+</div>

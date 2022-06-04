@@ -1,4 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../src/assets/styles/colors.scss";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+    background-color: $gray;
+}
+
+body {
+    margin: 0;
+    font-family: 'Patrick Hand', cursive;
+}
+
+
+.background {
+    background: $morado;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $blue, $morado);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right,$blue, $morado);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.fontPrincipal {
+    color: white;
+    -webkit-text-stroke: 2px #970E17;
+    font-family: 'Poppins', sans-serif;
+}
+
+.fontSecundario {
+    color: #6234A8;
+    -webkit-text-stroke: 1px #970E17;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+}
