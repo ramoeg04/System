@@ -1,0 +1,53 @@
+<button mat-button class="fontPrincipal mt-2" routerLink="/4465">
+    <mat-label style="font-size: 20px">{{loginText.volver}}</mat-label>
+</button>
+
+<mat-toolbar class="margin mt-5 fontPrincipal background">
+    <mat-toolbar-row style="justify-content: center;">
+        <mat-label>Divisiones</mat-label>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <mat-form-field appearance="legacy">
+            <mat-icon>search</mat-icon>
+            <mat-label class="fontPrincipal"> Buscar </mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+        </mat-form-field>
+        <span class="example-spacer"></span>
+        <mat-label class="fontPrincipal" (click)="add()"> Add</mat-label>
+        <mat-icon (click)="add()">add</mat-icon>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 margin">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="editar">
+        <th mat-header-cell *matHeaderCellDef> Editar </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-icon (click)="edit(element.id)">edit</mat-icon>
+        </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="eliminar">
+        <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-icon (click)="delete(element.id)">delete</mat-icon>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"
+    class="">
+</mat-paginator> -->

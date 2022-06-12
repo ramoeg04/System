@@ -1,11 +1,11 @@
 <body class="display">
-    <mat-card class="background">
+    <mat-card class="background fontFormulario">
         <mat-card-content>
             <img mat-card-image [src]="csf" class="img-fluid" alt="">
             <!-- <h1 class="mt-2 mb-4">{{loginText.sesion}}</h1> -->
             <form [formGroup]="loginForm">
                 <div class="row">
-                    <mat-form-field appearance="outline">
+                    <mat-form-field appearance="legacy">
                         <mat-label>{{loginText.text_email}}</mat-label>
                         <input type="email" matInput formControlName="email" name="email" placeholder="Ingrese Email"
                             autofocus>
@@ -15,7 +15,7 @@
                     </mat-form-field>
                 </div>
                 <div class="row mt-3">
-                    <mat-form-field appearance="outline">
+                    <mat-form-field appearance="legacy">
                         <mat-label>{{loginText.text_pass}}</mat-label>
                         <input type="Password" matInput formControlName="password" name="password"
                             placeholder="Ingrese Contraseña">

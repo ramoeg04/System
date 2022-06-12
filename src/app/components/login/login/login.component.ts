@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       // this.loginServices.login(this.loginForm.value).subscribe(result=>{
       console.log("Valido");
-      this.router.navigate(['home']);
+      this.router.navigate(['4465']);
       this.alertSuccess();
       // }, (error)=>{
       //   this.alertError();

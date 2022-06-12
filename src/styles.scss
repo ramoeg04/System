@@ -22,6 +22,10 @@ body {
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.fontFormulario{
+    color: $white;
+}
+
 .fontPrincipal {
     color: white;
     -webkit-text-stroke: 2px #970E17;
@@ -34,3 +38,10 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 30px;
 }
+
+.tolbarCenter{
+   justify-content: center;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

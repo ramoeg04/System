@@ -1,0 +1,21 @@
+<mat-toolbar class="background fontPrincipal">
+    <span class="example-spacer"></span>{{add.text_edit}}
+    <span class="example-spacer"></span>
+    <mat-icon (click)=onNoClick()>close</mat-icon>
+</mat-toolbar>
+<form [formGroup]="editForm">
+    <div class="row mt-2">
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_email}}</mat-label>
+            <input type="text" matInput formControlName="name" name="name" placeholder="Ingrese Nombre" autofocus>
+            <mat-error ngxErrors="editForm.name">
+                <p ngxError="required"> {{add.email}}</p>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="row mt-3 ml-3">
+        <button mat-button class="fontPrincipal" (click)="edit()">
+            <mat-label style="font-size: 20px">{{add.text_send}}</mat-label>
+        </button>
+    </div>
+</form>

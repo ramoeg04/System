@@ -40,10 +40,20 @@ export const login = {
     text_pass: "Password",
     text_send:"Enviar",
     text_rol:"Rol",
-    volver:"Inicio"
+    volver:"Inicio",
+    alerta: "Registro Exitoso"
 };
 
-//Register
+//Add
+export const add = {
+    email: "Ingrese un nombre válido",
+    error: "Intente Nuevamente",
+    text_email: "Nombre",
+    text_send:"Enviar",
+    text_edit:"Editar",
+    text_add:"Agregar",
+    alerta: "Registro Exitoso"
+};
 
     
 
