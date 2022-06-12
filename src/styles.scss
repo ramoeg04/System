@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import "../src/assets/styles/colors.scss";
 
+@import '~ngx-toastr/toastr';
+@import "../src/assets/styles/colors.scss";
 html,
 body {
     height: 100%;
@@ -12,23 +13,22 @@ body {
     font-family: 'Patrick Hand', cursive;
 }
 
-
 .background {
     background: $morado;
     /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, $blue, $morado);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right,$blue, $morado);
+    background: linear-gradient(to right, $blue, $morado);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.fontFormulario{
+.fontFormulario {
     color: $white;
 }
 
 .fontPrincipal {
-    color: white;
-    -webkit-text-stroke: 2px #970E17;
+    color: $red;
+    // -webkit-text-stroke: 2px #970E17;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -39,9 +39,16 @@ body {
     font-size: 30px;
 }
 
-.tolbarCenter{
-   justify-content: center;
+.tolbarCenter {
+    justify-content: center;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

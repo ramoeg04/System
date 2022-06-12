@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 //Firebase
 import { AngularFireModule } from '@angular/fire/compat';
@@ -23,10 +24,8 @@ import { LoginComponent } from './components/login/login/login.component';
 import { RegisterComponent } from './components/login/register/register.component';
 import { TableListDivisionComponent } from './components/admin/division/table-list-division/table-list-division.component';
 import { AddDivisionComponent } from './components/admin/division/add-division/add-division.component';
-import { EditDivisionComponent } from './components/admin/division/edit-division/edit-division.component';
 import { TableListCategoryComponent } from './components/admin/category/table-list-category/table-list-category.component';
 import { AddCategoryComponent } from './components/admin/category/add-category/add-category.component';
-import { EditCategoryComponent } from './components/admin/category/edit-category/edit-category.component';
 
 
 
@@ -44,6 +43,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSortModule} from '@angular/material/sort';
+import { TableListUserComponent } from './components/admin/user/table-list-user/table-list-user.component';
+import { AddUserComponent } from './components/admin/user/add-user/add-user.component';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -56,10 +58,10 @@ import {MatSortModule} from '@angular/material/sort';
     RegisterComponent,
     TableListDivisionComponent,
     AddDivisionComponent,
-    EditDivisionComponent,
     TableListCategoryComponent,
     AddCategoryComponent,
-    EditCategoryComponent
+    TableListUserComponent,
+    AddUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +70,7 @@ import {MatSortModule} from '@angular/material/sort';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
     //Firebase
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
@@ -86,7 +89,8 @@ import {MatSortModule} from '@angular/material/sort';
      MatPaginatorModule,
      MatProgressSpinnerModule,
      MatDialogModule,
-     MatSortModule
+     MatSortModule,
+     provideAuth(() => getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]

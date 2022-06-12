@@ -8,9 +8,9 @@
     </mat-toolbar-row>
     <mat-toolbar-row>
         <mat-form-field appearance="legacy">
-            <mat-icon>search</mat-icon>
+            <!-- <mat-icon>search</mat-icon> -->
             <mat-label class="fontPrincipal"> Buscar </mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+            <input matInput (keyup)="applyFilter($event)" #input>
         </mat-form-field>
         <span class="example-spacer"></span>
         <mat-label class="fontPrincipal" (click)="add()"> Add</mat-label>
@@ -18,14 +18,14 @@
     </mat-toolbar-row>
 </mat-toolbar>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 margin">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 margin" matSort>
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
 
@@ -48,6 +48,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-<!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"
-    class="">
-</mat-paginator> -->
+<mat-paginator class="margin" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+</mat-paginator>

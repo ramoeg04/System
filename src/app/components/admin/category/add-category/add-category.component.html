@@ -1,1 +1,38 @@
-<p>add-category works!</p>
+<mat-toolbar class="background fontPrincipal">
+    <span class="example-spacer"></span>
+    <div *ngIf="this.data == null"> {{add.text_add}}</div>
+    <div *ngIf="this.data != null"> {{add.text_edit}}</div>
+    <span class="example-spacer"></span>
+    <mat-icon (click)=onNoClick()>close</mat-icon>
+</mat-toolbar>
+<form [formGroup]="addForm">
+    <div class="row mt-2">
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_name}}</mat-label>
+            <input type="text" matInput formControlName="name" name="name" placeholder="Ingrese Nombre" autofocus>
+            <mat-error ngxErrors="addForm.name">
+                <p ngxError="required"> {{add.error}}</p>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="row mt-2">
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_name}}</mat-label>
+            <mat-select formControlName="id_division">
+                <mat-option>Seleccione</mat-option>
+                <mat-option *ngFor="let name of tablelist" [value]="name.id">{{name.name}}</mat-option>
+            </mat-select>
+            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+            <mat-error ngxErrors="addForm.id_division">
+                <p ngxError="required"> {{add.error}}</p>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+
+    <div class="row mt-3 ml-3">
+        <button mat-button class="fontPrincipal" (click)="addData()">
+        <mat-label style="font-size: 20px">{{add.text_send}}</mat-label>
+        </button>
+    </div>
+</form>

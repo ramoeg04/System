@@ -1,27 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { login } from 'src/app/core/global';
+import { alert, login } from 'src/app/core/global';
 import { MatDialog } from '@angular/material/dialog';
-import { EditDivisionComponent } from '../edit-division/edit-division.component';
 import { AddDivisionComponent } from '../add-division/add-division.component';
 import { Division } from '../../../../core/models/division';
 import { ServicesSystemService } from 'src/app/services/services-system.service';
 import { MatSort } from '@angular/material/sort';
-import Swal from 'sweetalert2'
+import { ToastrService } from 'ngx-toastr';
 
-// export interface PeriodicElement {
-//   name: string;
-//   position: number;
-//   weight: number;
-//   symbol: string;
-// }
-
-// const ELEMENT_DATA: PeriodicElement[] = [
-//   {position: 1, name: 'Bachata', weight: 1.0079, symbol: 'H'},
-//   {position: 2, name: 'Casino', weight: 4.0026, symbol: 'He'},
-//   {position: 3, name: 'Salsa', weight: 6.941, symbol: 'Li'}, 
-// ];
 
 @Component({
   selector: 'app-table-list-division',
@@ -30,29 +17,32 @@ import Swal from 'sweetalert2'
 })
 
 export class TableListDivisionComponent implements OnInit {
+  @ViewChild(MatPaginator) set matPaginator(paginator: MatPaginator) {
+    this.dataSource.paginator = paginator;
+  }
 
-  // @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  // @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatSort) set matSort(sort: MatSort) {
+    this.dataSource.sort = sort;
+  }
 
   tablelist: Division[] = [];
   dataSource = new MatTableDataSource(this.tablelist);
   displayedColumns: string[] = ['name', 'editar', 'eliminar'];
   spiner: Boolean = false;
   public loginText = login;
+  public alert = alert;
 
-  constructor(public dialog: MatDialog, public servicesSystem: ServicesSystemService) { }
+  constructor(public dialog: MatDialog, public servicesSystem: ServicesSystemService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.tablelist);
     this.tableList();
-    // this.dataSource.paginator = this.paginator;
-    // this.dataSource.sort = this.sort;
   }
 
   tableList() {
-    this.servicesSystem.listDivision().subscribe(response => {
+    this.servicesSystem.list('division').subscribe(response => {
       if (response.length === 0) {
-        this.alertError()
+        this.toastr.warning(this.alert.warning);
       } else {
         response.forEach((data: any) => {
           this.tablelist.push({
@@ -67,7 +57,7 @@ export class TableListDivisionComponent implements OnInit {
   }
 
   load() {
-    this.servicesSystem.listDivision().subscribe(response => {
+    this.servicesSystem.list('division').subscribe(response => {
       this.tablelist = [];
       response.forEach((data: any) => {
         this.tablelist.push({
@@ -86,8 +76,8 @@ export class TableListDivisionComponent implements OnInit {
   }
 
   delete(data: string) {
-    this.servicesSystem.deleteDivision(data).then(() => {
-      this.alertSuccess()
+    this.servicesSystem.delete(data, 'division').then(() => {
+      this.toastr.success(this.alert.success);
       this.load();
     }).catch(error => {
       console.log(error);
@@ -96,15 +86,17 @@ export class TableListDivisionComponent implements OnInit {
   }
 
   edit(data: string) {
-    if(data != null){
-      const dialogRef = this.dialog.open(EditDivisionComponent, {
-        data: {data},
+    if (data != null) {
+      const dialogRef = this.dialog.open(AddDivisionComponent, {
+        data: { data },
       });
       dialogRef.afterClosed().subscribe(result => {
         this.load();
       });
-    }else{
+    } else {
       console.log("Error");
+      this.toastr.warning(this.alert.warning);
+
     }
   }
 
@@ -114,45 +106,4 @@ export class TableListDivisionComponent implements OnInit {
       this.load();
     });
   }
-
-
-  alertError() {
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top',
-      showConfirmButton: false,
-      timer: 2000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
-
-    Toast.fire({
-      icon: 'warning',
-      title: "No Hay Data"
-    })
-  }
-
-  alertSuccess() {
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top',
-      showConfirmButton: false,
-      timer: 1000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
-
-    Toast.fire({
-      icon: 'success',
-      title: 'Borrado con Exito'
-    })
-  }
-
-
 }

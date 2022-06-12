@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'Participante', component: HomeComponent },
   { path: 'Jurado', component: HomeComponent },
   { path: 'Ponderación', component: HomeComponent },
-  { path: 'Crear Usuario', component: RegisterComponent},
+  { path: 'Usuario', component: RegisterComponent},
 
 
 ];

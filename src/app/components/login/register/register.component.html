@@ -7,8 +7,7 @@
                 <div class="row">
                     <mat-form-field appearance="standard">
                         <mat-label>{{loginText.text_email}}</mat-label>
-                        <input type="email" matInput formControlName="email" name="email" placeholder="Ingrese Email"
-                            autofocus>
+                        <input type="email" matInput formControlName="email" name="email" placeholder="Ingrese Email" autofocus>
                         <mat-error ngxErrors="loginForm.email">
                             <p ngxError="email"> {{loginText.email}}</p>
                         </mat-error>
@@ -17,23 +16,9 @@
                 <div class="row mt-2">
                     <mat-form-field appearance="standard">
                         <mat-label>{{loginText.text_pass}}</mat-label>
-                        <input type="Password" matInput formControlName="password" name="password"
-                            placeholder="Ingrese Contraseña">
+                        <input type="Password" matInput formControlName="password" name="password" placeholder="Ingrese Contraseña">
                         <mat-error ngxErrors="loginForm.password">
                             <p ngxError="minLength"> {{loginText.password}}</p>
-                        </mat-error>
-                    </mat-form-field>
-                </div>
-                <div class="row mt-2">
-                    <mat-form-field appearance="standard">
-                        <mat-label>{{loginText.text_rol}}</mat-label>
-                        <mat-select formControlName="rol" name="rol"> 
-                            <mat-option value="valid">Valid option</mat-option>
-                            <mat-option value="invalid">Invalid option</mat-option>
-                            <mat-option>Limpiar</mat-option>
-                          </mat-select>
-                        <mat-error ngxErrors="loginForm.rol">
-                            <p ngxError="valid"> {{loginText.rol}}</p>
                         </mat-error>
                     </mat-form-field>
                 </div>

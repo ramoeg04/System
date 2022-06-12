@@ -7,26 +7,28 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ServicesSystemService {
-
+ 
   constructor(private firestore: AngularFirestore) { }
 
-  addDivision( data: any){
-    return this.firestore.collection('division').add(data);
+  add( data: any, collection: string){
+    return this.firestore.collection(`${collection}`).add(data);
   }
 
-  listDivision(): Observable<any>{
-    return this.firestore.collection('division').snapshotChanges();
+  list(collection: string): Observable<any>{
+    return this.firestore.collection(`${collection}`).snapshotChanges();
   }
 
-  deleteDivision( id: string): Promise<any> {
-    return this.firestore.collection('division').doc(id).delete();
+  delete( id: string, collection: string): Promise<any> {
+    return this.firestore.collection(`${collection}`).doc(id).delete();
   }
 
-  getDivision( id: string): Observable<any>{
-    return this.firestore.collection('division').doc(id).snapshotChanges();
+  get( id: string, collection: string): Observable<any>{
+    return this.firestore.collection(`${collection}`).doc(id).snapshotChanges();
   }
 
-  editDivision( id: string, data: any): Promise<any>{
-    return this.firestore.collection('division').doc(id).update(data);
+  edit( id: string, data: any, collection: string): Promise<any>{
+    return this.firestore.collection(`${collection}`).doc(id).update(data);
   }
+
+ 
 }

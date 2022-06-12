@@ -20,13 +20,11 @@ export const homeAdmin = [{
 }, {
     nombre: 'Categoría'
 }, {
-    nombre: 'Participante'
+    nombre: 'Evaluaciones'
 }, {
-    nombre: 'Jurado'
+    nombre: 'Penalización'
 }, {
-    nombre: 'Ponderación'
-},{
-    nombre: 'Crear Usuario'
+    nombre: 'Usuario'
 }];
 
 //Login
@@ -41,22 +39,24 @@ export const login = {
     text_send:"Enviar",
     text_rol:"Rol",
     volver:"Inicio",
-    alerta: "Registro Exitoso"
 };
 
-//Add
+//Add-Edit
 export const add = {
-    email: "Ingrese un nombre válido",
+    name: "Ingrese un nombre válido",
     error: "Intente Nuevamente",
-    text_email: "Nombre",
+    text_name: "Nombre",
     text_send:"Enviar",
     text_edit:"Editar",
     text_add:"Agregar",
-    alerta: "Registro Exitoso"
 };
 
-    
-
+//Alerts
+export const alert = {
+    success: "Accion Realizada con Exito",
+    error: "Error, Intente Nuevamente",
+    warning: "Intente Nuevamente",
+}
 
 ////Imagenes////
 export const csm = '../../assets/img/WhatsApp Image 2020-09-19 at 6.05.41 PM.png';

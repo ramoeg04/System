@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { csf, login } from 'src/app/core/global';
-import Swal from 'sweetalert2';
+import { alert, csf, login } from 'src/app/core/global';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +13,9 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
   public loginText = login;
   public csf = csf;
+  public alert = alert;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private toastr: ToastrService, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -24,57 +26,16 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm.valid) {
-      // this.loginServices.login(this.loginForm.value).subscribe(result=>{
-      console.log("Valido");
-      this.router.navigate(['4465']);
-      this.alertSuccess();
-      // }, (error)=>{
-      //   this.alertError();
-      this.loginForm.reset()
-      // })
-    } else {
-      this.alertError();
-      this.loginForm.reset()
+      this.authService.login(this.loginForm.value).then((data: any) => {
+        this.authService.setId(data.user.email);
+        this.router.navigate(['4465']);
+        this.toastr.success(this.alert.success);
+      }).catch((error) => {
+        console.log(error)
+        this.toastr.error(this.alert.error);
+        this.loginForm.reset()
+      })
     }
   }
-
-  alertSuccess() {
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top',
-      showConfirmButton: false,
-      timer: 2000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
-
-    Toast.fire({
-      icon: 'success',
-      title: 'Signed in successfully'
-    })
-  }
-  alertError() {
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top',
-      showConfirmButton: false,
-      timer: 2000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
-
-    Toast.fire({
-      icon: 'warning',
-      title: 'Error: ' + this.loginText.error
-    })
-  }
-
-
 
 }
