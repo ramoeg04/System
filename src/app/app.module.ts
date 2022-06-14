@@ -12,7 +12,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 //Components
 import { AppComponent } from './app.component';
@@ -26,7 +26,12 @@ import { TableListDivisionComponent } from './components/admin/division/table-li
 import { AddDivisionComponent } from './components/admin/division/add-division/add-division.component';
 import { TableListCategoryComponent } from './components/admin/category/table-list-category/table-list-category.component';
 import { AddCategoryComponent } from './components/admin/category/add-category/add-category.component';
-
+import { TableListItemComponent } from './components/admin/items/table-list-item/table-list-item.component';
+import { AddItemComponent } from './components/admin/items/add-item/add-item.component';
+import { TableListUserComponent } from './components/admin/user/table-list-user/table-list-user.component';
+import { AddUserComponent } from './components/admin/user/add-user/add-user.component';
+import { AddPenaltyComponent } from './components/admin/penalty/add-penalty/add-penalty.component';
+import { TableListPenaltyComponent } from './components/admin/penalty/table-list-penalty/table-list-penalty.component';
 
 
 //Angular Material
@@ -43,9 +48,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSortModule} from '@angular/material/sort';
-import { TableListUserComponent } from './components/admin/user/table-list-user/table-list-user.component';
-import { AddUserComponent } from './components/admin/user/add-user/add-user.component';
-import { provideAuth,getAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,10 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     AddCategoryComponent,
     TableListUserComponent,
     AddUserComponent,
+    TableListItemComponent,
+    AddItemComponent,
+    AddPenaltyComponent,
+    TableListPenaltyComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +81,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
     AngularFirestoreModule,
      //Angular Material
      MatToolbarModule,
@@ -90,7 +97,6 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
      MatProgressSpinnerModule,
      MatDialogModule,
      MatSortModule,
-     provideAuth(() => getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]

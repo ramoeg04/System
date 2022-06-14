@@ -1,6 +1,15 @@
-
-<div class="wrapper mt-2">
+<!-- <div class="wrapper mt-2">
     <div *ngFor="let name of homeAdmin">
-        <button   mat-button class="fontSecundario" (click)=route(name.nombre)>{{name.nombre}}</button>
+        <button mat-button class="fontSecundario" (click)=route(name.nombre)>{{name.nombre}}</button>
     </div>
+</div> -->
+<div class="row">
+    <mat-card class="example-card card" *ngFor="let name of homeAdmin">
+        <mat-card-header class="header">
+            <img class="img" mat-card-image [src]="name.img" alt="" (click)=route(name.nombre)>
+        </mat-card-header>
+        <mat-card-content class="button">
+            <button mat-button class="fontSecundario" (click)=route(name.nombre)>{{name.nombre}}</button>
+        </mat-card-content>
+    </mat-card>
 </div>

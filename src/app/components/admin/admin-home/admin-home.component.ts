@@ -10,15 +10,15 @@ import { homeAdmin } from 'src/app/core/global';
 export class AdminHomeComponent implements OnInit {
   public homeAdmin: any[] = homeAdmin;
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  route(data:string){
-    console.log(data);
+  route(data: string) {
+    // console.log(data);
     this.router.navigate([data]);
   }
-        
+
 
 }

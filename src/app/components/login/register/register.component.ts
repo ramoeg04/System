@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   login() {
     if (this.loginForm.valid) {
       this.authService.register(this.loginForm.value).then(()=>{
-      console.log("Valido");
+      // console.log("Valido");
       // this.router.navigate(['home']);
       // this.alertSuccess();
       // }, (error)=>{

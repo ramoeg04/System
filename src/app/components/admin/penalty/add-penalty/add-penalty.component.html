@@ -17,22 +17,16 @@
     </div>
     <div class="row mt-2">
         <mat-form-field appearance="standard">
-            <mat-label>{{add.text_select}}</mat-label>
-            <mat-select formControlName="id_division">
-                <mat-option>Seleccione</mat-option>
-                <mat-option *ngFor="let name of tablelist" [value]="name.id">{{name.name}}</mat-option>
-            </mat-select>
-            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-            <mat-error ngxErrors="addForm.id_division">
+            <mat-label>{{add.text_value}}</mat-label>
+            <input type="number" matInput formControlName="value" name="value" placeholder="Ingrese Valor" autofocus>
+            <mat-error ngxErrors="addForm.value">
                 <p ngxError="required"> {{add.error}}</p>
             </mat-error>
         </mat-form-field>
     </div>
-
-
     <div class="row mt-3 ml-3">
-        <button mat-button class="fontPrincipal" (click)="addData()">
-        <mat-label style="font-size: 20px">{{add.text_send}}</mat-label>
+        <button mat-button class="fontPrincipal" (click)="addDivision()">
+            <mat-label style="font-size: 20px">{{add.text_send}}</mat-label>
         </button>
     </div>
 </form>

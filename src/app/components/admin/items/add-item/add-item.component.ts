@@ -1,32 +1,30 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { add, alert } from 'src/app/core/global';
-import Swal from 'sweetalert2'
-import { ServicesSystemService } from '../../../../services/services-system.service';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ServicesSystemService } from '../../../../services/services-system.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-add-division',
-  templateUrl: './add-division.component.html',
-  styleUrls: ['./add-division.component.scss']
+  selector: 'app-add-item',
+  templateUrl: './add-item.component.html',
+  styleUrls: ['./add-item.component.scss']
 })
-export class AddDivisionComponent implements OnInit {
+export class AddItemComponent implements OnInit {
 
-  constructor(private toastr: ToastrService, public dialogRef: MatDialogRef<AddDivisionComponent>, private servicesSystem: ServicesSystemService, @Inject(MAT_DIALOG_DATA) public data: any) { }
   public add = add;
   public alert = alert;
   public id: any;
+  constructor(private toastr: ToastrService, public dialogRef: MatDialogRef<AddItemComponent>, private servicesSystem: ServicesSystemService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
-
     if (this.data != null) {
       this.id = this.data.data;
       // console.log(this.id)
       this.get();
     }
   }
-
+  
   addForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
   })
@@ -40,7 +38,7 @@ export class AddDivisionComponent implements OnInit {
       this.edit();
      } else {
       if (this.addForm.valid) {
-        this.servicesSystem.add(this.addForm.value, 'division').then(() => {
+        this.servicesSystem.add(this.addForm.value, 'items').then(() => {
           this.onNoClick();
           this.toastr.success(this.alert.success);
         }).catch(error => {
@@ -53,7 +51,7 @@ export class AddDivisionComponent implements OnInit {
   }
 
   get() {
-    this.servicesSystem.get(this.id, 'division').subscribe(response => {
+    this.servicesSystem.get(this.id, 'items').subscribe(response => {
       this.addForm.setValue({
         name: response.payload.data()['name']
       })
@@ -62,7 +60,7 @@ export class AddDivisionComponent implements OnInit {
 
   edit() {
     if (this.addForm.valid) {
-      this.servicesSystem.edit(this.id, this.addForm.value, 'division').then(() => {
+      this.servicesSystem.edit(this.id, this.addForm.value, 'items').then(() => {
         this.onNoClick();
         this.toastr.success(this.alert.success);
       }).catch(error => {
@@ -72,4 +70,6 @@ export class AddDivisionComponent implements OnInit {
       })
     }
   }
+
+
 }
