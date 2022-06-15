@@ -43,6 +43,26 @@ body {
     justify-content: center;
 }
 
+.edit {
+    color: $edit;
+}
+
+.delete {
+    color: $delete;
+}
+
+.cancel {
+    color: $cancel;
+}
+
+.search {
+    color: $search;
+}
+
+.add {
+    color: $add;
+}
+
 html,
 body {
     height: 100%;

@@ -1,32 +1,32 @@
 .row {
-  --bs-gutter-x: 0;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
+    --bs-gutter-x: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 }
 
 .header {
-  margin-left: 9%;
+    margin-left: 9%;
 }
 
 .img {
-  width: 76%;
+    width: 76%;
 }
 
 .button {
-  text-align: center;
+    text-align: center;
 }
 
 .card {
-  width: 22%;
-  margin-left: 5%;
-  margin-top: 4%;
-  border-radius: 1em;
-  background: transparent;
+    width: 22%;
+    margin-left: 5%;
+    margin-top: 4%;
+    border-radius: 1em;
+    background: transparent;
 }
 
-@media (max-width: 600px) {
-  .card {
-    width: 75%;
-  }
+@media (max-width: 800px) {
+    .card {
+        width: 75%;
+    }
 }

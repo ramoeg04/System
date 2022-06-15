@@ -7,6 +7,7 @@ import { RegisterComponent } from './components/login/register/register.componen
 import { TableListCategoryComponent } from './components/admin/category/table-list-category/table-list-category.component';
 import { TableListItemComponent } from './components/admin/items/table-list-item/table-list-item.component';
 import { TableListPenaltyComponent } from './components/admin/penalty/table-list-penalty/table-list-penalty.component';
+import { AddUserComponent } from './components/admin/user/add-user/add-user.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'Categoría', component: TableListCategoryComponent },
   { path: 'Evaluaciones', component: TableListItemComponent },
   { path: 'Penalización', component: TableListPenaltyComponent },
-  { path: 'Usuario', component: RegisterComponent},
+  { path: 'Usuario', component: AddUserComponent},
 
 
 ];

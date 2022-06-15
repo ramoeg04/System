@@ -28,7 +28,6 @@ import { TableListCategoryComponent } from './components/admin/category/table-li
 import { AddCategoryComponent } from './components/admin/category/add-category/add-category.component';
 import { TableListItemComponent } from './components/admin/items/table-list-item/table-list-item.component';
 import { AddItemComponent } from './components/admin/items/add-item/add-item.component';
-import { TableListUserComponent } from './components/admin/user/table-list-user/table-list-user.component';
 import { AddUserComponent } from './components/admin/user/add-user/add-user.component';
 import { AddPenaltyComponent } from './components/admin/penalty/add-penalty/add-penalty.component';
 import { TableListPenaltyComponent } from './components/admin/penalty/table-list-penalty/table-list-penalty.component';
@@ -62,7 +61,6 @@ import {MatSortModule} from '@angular/material/sort';
     AddDivisionComponent,
     TableListCategoryComponent,
     AddCategoryComponent,
-    TableListUserComponent,
     AddUserComponent,
     TableListItemComponent,
     AddItemComponent,

@@ -9,31 +9,31 @@ import { LoginData } from '../core/models/login-data';
   providedIn: 'root'
 })
 export class AuthService {
-user: any;
-id: any;
+  user: any;
+  id: any;
 
   constructor(private auth: Auth, public fireAuth: AngularFireAuth) {
     this.user = this.fireAuth.authState;
-}
-   
-login({ email, password }: LoginData) {
-  return signInWithEmailAndPassword(this.auth, email, password);
-}
+  }
 
-register({ email, password}: LoginData) {
-  return this.fireAuth.createUserWithEmailAndPassword(email, password);
-}
+  login({ email, password }: LoginData) {
+    return signInWithEmailAndPassword(this.auth, email, password);
+  }
 
-logout() {
-  return signOut(this.auth);
-}
+  register({ email, password }: LoginData) {
+    return this.fireAuth.createUserWithEmailAndPassword(email, password);
+  }
 
-setId(id: string) {
-  this.id = id;
-}
+  logout() {
+    return signOut(this.auth);
+  }
 
-getId() {
-  return this.id;
-}
+  setId(id: string) {
+    this.id = id;
+  }
+
+  getId() {
+    return this.id;
+  }
 
 }

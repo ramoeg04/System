@@ -31,6 +31,8 @@ export const homeAdmin = [{
     nombre: 'Usuario',
     img:'../../assets/img/User.png'
 }];
+//     inscripcion: "../../assets/img/Inscripciones.png",
+
 
 //Login
 export const login = {
@@ -70,11 +72,3 @@ export const csm = '../../assets/img/WhatsApp Image 2020-09-19 at 6.05.41 PM.png
 export const csf = '../../assets/img/Sin título-2-01.png';
 export const gp = '../../assets/img/SinFondo.png';
 
-// export const imgHome = {
-//     division: "../../assets/img/Division.png",
-//     categoria: "../../assets/img/Categoria.png",
-//     inscripcion: "../../assets/img/Inscripciones.png",
-//     evaluacion: "../../assets/img/Evaluacion.png",
-//     penalizacion: "../../assets/img/Penalizacion.png",
-//     user: "../../assets/img/User.png"
-// };

@@ -1,1 +1,31 @@
-<p>add-user works!</p>
+<mat-toolbar class="background fontPrincipal">
+    <span class="example-spacer"></span>
+    <div> {{add.text_add}}</div>
+    <span class="example-spacer"></span>
+    <mat-icon (click)=onNoClick() class="cancel">cancel</mat-icon>
+</mat-toolbar>
+<form [formGroup]="loginForm">
+    <div class="row">
+        <mat-form-field appearance="standard">
+            <mat-label>{{loginText.text_email}}</mat-label>
+            <input type="email" matInput formControlName="email" name="email" placeholder="Ingrese Email" autofocus>
+            <mat-error ngxErrors="loginForm.email">
+                <p ngxError="email"> {{loginText.email}}</p>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="row mt-2">
+        <mat-form-field appearance="standard">
+            <mat-label>{{loginText.text_pass}}</mat-label>
+            <input type="Password" matInput formControlName="password" name="password" placeholder="Ingrese Contraseña">
+            <mat-error ngxErrors="loginForm.password">
+                <p ngxError="minLength"> {{loginText.password}}</p>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="mt-2 button">
+        <button mat-button class="fontPrincipal" (click)="login()">
+            <mat-label style="font-size: 20px">{{loginText.text_send}}</mat-label>
+        </button>
+    </div>
+</form>

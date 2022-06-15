@@ -3,7 +3,7 @@
     <div *ngIf="this.data == null"> {{add.text_add}}</div>
     <div *ngIf="this.data != null"> {{add.text_edit}}</div>
     <span class="example-spacer"></span>
-    <mat-icon (click)=onNoClick()>close</mat-icon>
+    <mat-icon (click)=onNoClick() class="cancel">cancel</mat-icon>
 </mat-toolbar>
 <form [formGroup]="addForm">
     <div class="row mt-2">

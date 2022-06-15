@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.loginForm.value).then((data: any) => {
         this.authService.setId(data.user.email);
         this.router.navigate(['4465']);
-        this.toastr.success(this.alert.success);
+        this.toastr.success(this.alert.success);      
       }).catch((error) => {
         console.log(error)
         this.toastr.error(this.alert.error);
