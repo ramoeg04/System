@@ -47,6 +47,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSortModule} from '@angular/material/sort';
+import { TableListInscriptionComponent } from './components/admin/inscription/table-list-inscription/table-list-inscription.component';
+import { AddInscriptionComponent } from './components/admin/inscription/add-inscription/add-inscription.component';
+import { ViewInscriptionComponent } from './components/admin/inscription/view-inscription/view-inscription.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +69,9 @@ import {MatSortModule} from '@angular/material/sort';
     AddItemComponent,
     AddPenaltyComponent,
     TableListPenaltyComponent,
+    TableListInscriptionComponent,
+    AddInscriptionComponent,
+    ViewInscriptionComponent,
   ],
   imports: [
     BrowserModule,

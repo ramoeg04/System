@@ -17,22 +17,20 @@ export const rol = 'Admin';
 //Home
 export const homeAdmin = [{
     nombre: 'Divisiones',
-    img:'../../assets/img/Division.png'
+    img: '../../assets/img/Division.png'
 }, {
     nombre: 'Categoría',
-    img:'../../assets/img/Categoria.png'
+    img: '../../assets/img/Categoria.png'
 }, {
     nombre: 'Evaluaciones',
-    img:'../../assets/img/Evaluacion.png'
+    img: '../../assets/img/Evaluacion.png'
 }, {
     nombre: 'Penalización',
-    img:'../../assets/img/Penalizacion.png'
-}, {
-    nombre: 'Usuario',
-    img:'../../assets/img/User.png'
+    img: '../../assets/img/Penalizacion.png'
+},{
+    nombre: 'Inscripción',
+    img: '../../assets/img/Inscripciones.png'
 }];
-//     inscripcion: "../../assets/img/Inscripciones.png",
-
 
 //Login
 export const login = {
@@ -55,6 +53,22 @@ export const add = {
     text_name: "Nombre",
     text_select: "Division",
     text_value: "Valor",
+    text_send: "Enviar",
+    text_edit: "Editar",
+    text_add: "Agregar",
+};
+
+//Inscriptions
+export const inscription = {
+    name: "Ingrese un nombre válido",
+    error: "Intente Nuevamente",
+    text_document:"Cédula",
+    text_email: "Correo",
+    text_firtName: "Nombre",
+    text_id_categoria:"Categoría",
+    text_lastName:"Apellido",
+    text_id_division: "División",
+    text_date:"Fecha",
     text_send: "Enviar",
     text_edit: "Editar",
     text_add: "Agregar",

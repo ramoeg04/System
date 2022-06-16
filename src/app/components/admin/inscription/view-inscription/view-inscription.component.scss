@@ -1,0 +1,13 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+mat-icon {
+    cursor: pointer;
+}

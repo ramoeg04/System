@@ -1,0 +1,23 @@
+.margin {
+    width: 70%;
+    margin-left: 12%;
+    // text-align: center;
+    // text-align-last: center;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+@media (max-width: 600px) {
+    .mat-form-field-infix {
+        width: 60px !important;
+    }
+    .margin {
+        width: 200%;
+        margin-left: 3%;
+        // margin-right: 3%;
+    }
+}

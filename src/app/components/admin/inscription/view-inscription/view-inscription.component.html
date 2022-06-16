@@ -1,0 +1,58 @@
+<mat-toolbar class="background fontPrincipal">
+    <span class="example-spacer"></span>
+    <div *ngIf="this.data != null"> Ver Inscripción</div>
+    <span class="example-spacer"></span>
+    <mat-icon (click)=onNoClick() class="cancel">cancel</mat-icon>
+</mat-toolbar>
+<form [formGroup]="addForm">
+    <div class="mt-2">
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_firtName}}</mat-label>
+            <input type="text" matInput formControlName="firtName" name="firtName" readonly>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_lastName}}</mat-label>
+            <input type="text" matInput formControlName="lastName" name="lastName" readonly>
+        </mat-form-field>
+    </div>
+    <div class="mt-2">
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_document}}</mat-label>
+            <input type="text" matInput formControlName="document" name="document" readonly>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_email}}</mat-label>
+            <input type="email" matInput formControlName="email" name="email" readonly>
+        </mat-form-field>
+    </div>
+    <div class="mt-2">
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_id_division}}</mat-label>
+            <mat-select formControlName="id_division">
+                <mat-option>Seleccione</mat-option>
+                <mat-option *ngFor="let name of division" [value]="name.id">{{name.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_id_categoria}}</mat-label>
+            <mat-select formControlName="id_categoria" disableOptionCentering>
+                <mat-option>Seleccione</mat-option>
+                <mat-option *ngFor="let name of category" [value]="name.id">{{name.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="mt-2">
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_date}}</mat-label>
+            <input type="date" matInput formControlName="date" name="date" readonly>
+        </mat-form-field>
+
+    </div>
+
+    <!-- <div class="row mt-3 ml-3">
+        <button mat-button class="fontPrincipal" (click)="addData()">
+            <mat-label style="font-size: 20px">{{add.text_send}}</mat-label>
+        </button>
+    </div> -->
+</form>

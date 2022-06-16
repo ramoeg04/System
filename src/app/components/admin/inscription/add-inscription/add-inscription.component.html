@@ -1,0 +1,80 @@
+<mat-toolbar class="background fontPrincipal">
+    <span class="example-spacer"></span>
+    <div *ngIf="this.data == null"> {{add.text_add}}</div>
+    <div *ngIf="this.data != null"> {{add.text_edit}}</div>
+    <span class="example-spacer"></span>
+    <mat-icon (click)=onNoClick() class="cancel">cancel</mat-icon>
+</mat-toolbar>
+<form [formGroup]="addForm">
+    <div class="mt-2">
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_firtName}}</mat-label>
+            <input type="text" matInput formControlName="firtName" name="firtName" placeholder="Ingrese Nombre" autofocus>
+            <mat-error ngxErrors="addForm.firtName">
+                <p ngxError="required"> {{add.error}}</p>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_lastName}}</mat-label>
+            <input type="text" matInput formControlName="lastName" name="lastName" placeholder="Ingrese Nombre" autofocus>
+            <mat-error ngxErrors="addForm.lastName">
+                <p ngxError="required"> {{add.error}}</p>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="mt-2">
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_document}}</mat-label>
+            <input type="number" matInput formControlName="document" name="document" placeholder="Ingrese Nombre" autofocus>
+            <mat-error ngxErrors="addForm.document">
+                <p ngxError="required"> {{add.error}}</p>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_email}}</mat-label>
+            <input type="email" matInput formControlName="email" name="email" placeholder="Ingrese Nombre" autofocus>
+            <mat-error ngxErrors="addForm.email">
+                <p ngxError="required"> {{add.error}}</p>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="mt-2">
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_id_division}}</mat-label>
+            <mat-select formControlName="id_division">
+                <mat-option>Seleccione</mat-option>
+                <mat-option *ngFor="let name of division" [value]="name.id">{{name.name}}</mat-option>
+            </mat-select>
+            <mat-error ngxErrors="addForm.id_division">
+                <p ngxError="required"> {{add.error}}</p>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_id_categoria}}</mat-label>
+            <mat-select formControlName="id_categoria">
+                <mat-option>Seleccione</mat-option>
+                <mat-option *ngFor="let name of category" [value]="name.id">{{name.name}}</mat-option>
+            </mat-select>
+            <mat-error ngxErrors="addForm.id_categoria">
+                <p ngxError="required"> {{add.error}}</p>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="mt-2">
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_date}}</mat-label>
+            <input type="date" matInput formControlName="date" name="date" placeholder="Ingrese Nombre" autofocus>
+            <mat-error ngxErrors="addForm.date">
+                <p ngxError="required"> {{add.error}}</p>
+            </mat-error>
+        </mat-form-field>
+
+    </div>
+
+    <div class="row mt-3 ml-3">
+        <button mat-button class="fontPrincipal" (click)="addData()">
+            <mat-label style="font-size: 20px">{{add.text_send}}</mat-label>
+        </button>
+    </div>
+</form>
