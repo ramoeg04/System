@@ -16,7 +16,7 @@
         </mat-form-field>
         <mat-form-field appearance="standard">
             <mat-label>{{add.text_lastName}}</mat-label>
-            <input type="text" matInput formControlName="lastName" name="lastName" placeholder="Ingrese Nombre" autofocus>
+            <input type="text" matInput formControlName="lastName" name="lastName" placeholder="Ingrese Apellido" autofocus>
             <mat-error ngxErrors="addForm.lastName">
                 <p ngxError="required"> {{add.error}}</p>
             </mat-error>
@@ -25,14 +25,14 @@
     <div class="mt-2">
         <mat-form-field appearance="standard">
             <mat-label>{{add.text_document}}</mat-label>
-            <input type="number" matInput formControlName="document" name="document" placeholder="Ingrese Nombre" autofocus>
+            <input type="text" matInput formControlName="document" name="document" placeholder="Ingrese Documento" autofocus>
             <mat-error ngxErrors="addForm.document">
                 <p ngxError="required"> {{add.error}}</p>
             </mat-error>
         </mat-form-field>
         <mat-form-field appearance="standard">
             <mat-label>{{add.text_email}}</mat-label>
-            <input type="email" matInput formControlName="email" name="email" placeholder="Ingrese Nombre" autofocus>
+            <input type="email" matInput formControlName="email" name="email" placeholder="Ingrese Email" autofocus>
             <mat-error ngxErrors="addForm.email">
                 <p ngxError="required"> {{add.error}}</p>
             </mat-error>
@@ -64,8 +64,15 @@
     <div class="mt-2">
         <mat-form-field appearance="standard">
             <mat-label>{{add.text_date}}</mat-label>
-            <input type="date" matInput formControlName="date" name="date" placeholder="Ingrese Nombre" autofocus>
+            <input type="date" matInput formControlName="date" name="date" placeholder="Ingrese Fecha" autofocus>
             <mat-error ngxErrors="addForm.date">
+                <p ngxError="required"> {{add.error}}</p>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <mat-label>{{add.text_reference}}</mat-label>
+            <input type="text" matInput formControlName="reference" name="reference" placeholder="Ingrese Referencia" autofocus>
+            <mat-error ngxErrors="addForm.reference">
                 <p ngxError="required"> {{add.error}}</p>
             </mat-error>
         </mat-form-field>

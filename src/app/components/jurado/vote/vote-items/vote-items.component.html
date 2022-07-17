@@ -1,0 +1,171 @@
+<mat-stepper #stepper>
+    <mat-step [stepControl]="addForm">
+        <form [formGroup]="addForm">
+            <ng-template matStepLabel>Verifica el Participante</ng-template>
+
+            <div class="mt-2">
+                <mat-form-field appearance="standard">
+                    <mat-label>{{add.text_firtName}}</mat-label>
+                    <input type="text" matInput formControlName="firtName" name="firtName" readonly>
+                </mat-form-field>
+                <mat-form-field appearance="standard">
+                    <mat-label>{{add.text_lastName}}</mat-label>
+                    <input type="text" matInput formControlName="lastName" name="lastName" readonly>
+                </mat-form-field>
+            </div>
+
+            <div class="mt-2">
+                <mat-form-field appearance="standard">
+                    <mat-label>{{add.text_document}}</mat-label>
+                    <input type="text" matInput formControlName="document" name="document" readonly>
+                </mat-form-field>
+                <mat-form-field appearance="standard">
+                    <mat-label>{{add.text_email}}</mat-label>
+                    <input type="email" matInput formControlName="email" name="email" readonly>
+                </mat-form-field>
+            </div>
+
+            <div class="mt-2">
+                <mat-form-field appearance="standard">
+                    <mat-label>{{add.text_id_division}}</mat-label>
+                    <mat-select formControlName="id_division">
+                        <mat-option>Seleccione</mat-option>
+                        <mat-option *ngFor="let name of division" [value]="name.id">{{name.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="standard">
+                    <mat-label>{{add.text_id_categoria}}</mat-label>
+                    <mat-select formControlName="id_categoria" disableOptionCentering>
+                        <mat-option>Seleccione</mat-option>
+                        <mat-option *ngFor="let name of category" [value]="name.id">{{name.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="mt-2">
+                <mat-form-field appearance="standard">
+                    <mat-label>{{add.text_date}}</mat-label>
+                    <input type="date" matInput formControlName="date" name="date" readonly>
+                </mat-form-field>
+            </div>
+
+            <button mat-button matStepperNext>Siguiente</button>
+
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="voteForm" errorMessage="Ingresa la Votación es Requerida.">
+        <form [formGroup]="voteForm">
+            <ng-template matStepLabel>Ingresa tu Votación</ng-template>
+
+            <div class="mt-2">
+                <mat-form-field appearance="standard">
+                    <mat-label>{{vote.text_tiempo}}</mat-label>
+                    <input type="number" matInput formControlName="tiempo" name="tiempo"
+                        placeholder="Ingrese {{vote.text_tiempo}}" autofocus>
+
+                    <mat-error ngxErrors="voteForm.tiempo">
+                        <p ngxError="required"> {{add.error}}</p>
+                        <p ngxError="maxLength"> {{add.error}}</p>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="standard">
+                    <mat-label>{{vote.text_coreografia}}</mat-label>
+                    <input type="number" matInput formControlName="coreografia" name="coreografia"
+                        placeholder="Ingrese {{vote.text_coreografia}}" autofocus>
+                    <mat-error ngxErrors="voteForm.coreografia">
+                        <p ngxError="required"> {{add.error}}</p>
+                        <p ngxError="maxLength"> {{add.error}}</p>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="mt-2 spacer">
+                <button mat-raised-button class="background button" (click)="penals(0.1, '1')">1</button>
+                <button mat-raised-button class="background button" (click)="penals(0.1, '1')">1</button>
+            </div>
+
+            <div class="mt-2">
+                <mat-form-field appearance="standard">
+                    <mat-label>{{vote.text_iMusical}}</mat-label>
+                    <input type="number" matInput formControlName="iMusical" name="iMusical"
+                        placeholder="Ingrese {{vote.text_iMusical}}" autofocus>
+                    <mat-error ngxErrors="voteForm.iMusical">
+                        <p ngxError="required"> {{add.error}}</p>
+                        <p ngxError="maxLength"> {{add.error}}</p>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="standard">
+                    <mat-label>{{vote.text_tecnica}}</mat-label>
+                    <input type="number" matInput formControlName="tecnica" name="tecnica"
+                        placeholder="Ingrese {{vote.text_tecnica}}" autofocus>
+                    <mat-error ngxErrors="voteForm.tecnica">
+                        <p ngxError="required"> {{add.error}}</p>
+                        <p ngxError="maxLength"> {{add.error}}</p>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="mt-2 spacer">
+                <button mat-raised-button class="background button" (click)="penals(0.1, '1')">1</button>
+                <button mat-raised-button class="background button" (click)="penals(0.1, '1')">1</button>
+            </div>
+
+            <div class="mt-2">
+                <mat-form-field appearance="standard">
+                    <mat-label>{{vote.text_dificultad}}</mat-label>
+                    <input type="number" matInput formControlName="dificultad" name="dificultad"
+                        placeholder="Ingrese {{vote.text_dificultad}}" autofocus>
+                    <mat-error ngxErrors="voteForm.dificultad">
+                        <p ngxError="required"> {{add.error}}</p>
+                        <p ngxError="maxLength"> {{add.error}}</p>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="standard">
+                    <mat-label>{{vote.text_conexion}}</mat-label>
+                    <input type="number" matInput formControlName="conexion" name="conexion"
+                        placeholder="Ingrese {{vote.text_conexion}}" autofocus>
+                    <mat-error ngxErrors="voteForm.conexion">
+                        <p ngxError="required"> {{add.error}}</p>
+                        <p ngxError="maxLength"> {{add.error}}</p>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="mt-2 spacer">
+                <button mat-raised-button class="background button" (click)="penals(0.1, '1')">1</button>
+                <button mat-raised-button class="background button" (click)="penals(0.1, '1')">1</button>
+            </div>
+
+            <div class="mt-2">
+                <mat-form-field appearance="standard">
+                    <mat-label>{{vote.text_pProyeccion}}</mat-label>
+                    <input type="number" matInput formControlName="pProyeccion" name="pProyeccion"
+                        placeholder="Ingrese {{vote.text_pProyeccion}}" autofocus>
+                    <mat-error ngxErrors="voteForm.pProyeccion">
+                        <p ngxError="required"> {{add.error}}</p>
+                        <p ngxError="maxLength"> {{add.error}}</p>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="mt-2 spacer">
+                <button mat-raised-button class="background button" (click)="penals(0.1, '1')">1</button>
+            </div>
+
+            <!-- <h4 class="mt4" style="text-align:end ;">Penalizacio:</h4> -->
+            <!-- <button mat-raised-button class="background" *ngFor="let penal of penaltys"
+                (click)="penals(penal.value, penal.name)">{{penal.name}}</button> -->
+
+            <div class="mt-2 penal">
+                <button mat-raised-button class="background button" (click)="penals(0.05, '1')">2</button>
+                <button mat-raised-button class="background button" (click)="penals(0.1, '1')">3</button>
+            </div>
+
+            <div>
+                <button mat-button matStepperPrevious>Atrás</button>
+                <button mat-button matStepperNext [disabled]="!voteForm.valid" (click)="addVote()">Votar</button>
+                <!-- <button mat-button (click)="stepper.reset()">Borrar</button> -->
+            </div>
+
+        </form>
+    </mat-step>
+</mat-stepper>

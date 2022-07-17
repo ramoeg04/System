@@ -50,7 +50,6 @@ export class ViewInscriptionComponent implements OnInit {
             id: data.payload.doc.id,
             ...data.payload.doc.data()
           })
-          // console.log(this.category)
         })
       }
     })
@@ -67,27 +66,9 @@ export class ViewInscriptionComponent implements OnInit {
             id: data.payload.doc.id,
             ...data.payload.doc.data()
           })
-          // console.log(this.division)
         })
       }
     })
-  }
-
-  addData() {
-    if (this.data != null) {
-      this.edit();
-    } else {
-      if (this.addForm.valid) {
-        this.servicesSystem.add(this.addForm.value, 'inscriptions').then(() => {
-          this.onNoClick();
-          this.toastr.success(this.alert.success);
-        }).catch(error => {
-          this.toastr.error(this.alert.error);
-          this.addForm.reset()
-          console.log(error);
-        })
-      }
-    }
   }
 
   get() {
@@ -103,22 +84,4 @@ export class ViewInscriptionComponent implements OnInit {
       })
     })
   }
-
-
-
-  edit() {
-    if (this.addForm.valid) {
-      this.servicesSystem.edit(this.id, this.addForm.value, 'inscriptions').then(() => {
-        this.onNoClick();
-        this.toastr.success(this.alert.success);
-      }).catch(error => {
-        this.toastr.error(this.alert.error);
-        this.addForm.reset();
-        console.log(error);
-      })
-    }
-  }
-
-
-
 }

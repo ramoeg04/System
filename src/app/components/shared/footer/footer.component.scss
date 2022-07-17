@@ -1,9 +1,38 @@
+@import "../../../../assets/styles/colors.scss";
 .example-spacer {
     flex: 1 1 auto;
-  }
+}
 
-  footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+.fontPrincipal {
+    font-size: 30px;
+}
+
+.gp {
+    width: 10rem;
+}
+
+.csf {
+    width: 12rem;
+}
+
+@media (max-width: 600px) {
+    .gp {
+        width: auto;
+    }
+    .csf {
+        width: auto;
+    }
+    .fontPrincipal {
+        font-size: 17px;
+    }
+}
+
+mat-grid-list {
+    background: $morado;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $blue, $morado);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $blue, $morado);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    ;
 }

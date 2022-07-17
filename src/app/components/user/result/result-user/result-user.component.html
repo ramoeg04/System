@@ -1,7 +1,7 @@
 <mat-toolbar class="margin mt-5 fontPrincipal background">
     <mat-toolbar-row style="justify-content: center;">
         <span class="example-spacer"></span>
-        <mat-label>Evaluación</mat-label>
+        <mat-label>Inscripciones</mat-label>
         <span class="example-spacer"></span>
         <button mat-button class="fontPrincipal mt-2" routerLink="/4465">
             <mat-label style="font-size: 20px">{{loginText.volver}}</mat-label>
@@ -14,8 +14,7 @@
             <input matInput (keyup)="applyFilter($event)" #input>
         </mat-form-field>
         <span class="example-spacer"></span>
-        <!-- <mat-label class="fontPrincipal" (click)="add()"> Add</mat-label> -->
-        <mat-icon (click)="add()" class="add">add_circle</mat-icon>
+
     </mat-toolbar-row>
 </mat-toolbar>
 
@@ -24,26 +23,21 @@
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
 
+    <ng-container matColumnDef="reference">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Referencia </th>
+        <td mat-cell *matCellDef="let element"> {{element.reference}} </td>
+    </ng-container>
+
     <!-- Name Column -->
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.firtName}} </td>
     </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="editar">
-        <th mat-header-cell *matHeaderCellDef> Editar </th>
-        <td mat-cell *matCellDef="let element">
-            <mat-icon (click)="edit(element.id)" class="edit">edit</mat-icon>
-        </td>
-    </ng-container>
-
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="eliminar">
-        <th mat-header-cell *matHeaderCellDef> Eliminar </th>
-        <td mat-cell *matCellDef="let element">
-            <mat-icon (click)="delete(element.id)" class="delete">delete</mat-icon>
-        </td>
+    <!-- Name Column -->
+    <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

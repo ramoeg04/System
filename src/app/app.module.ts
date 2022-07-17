@@ -31,7 +31,12 @@ import { AddItemComponent } from './components/admin/items/add-item/add-item.com
 import { AddUserComponent } from './components/admin/user/add-user/add-user.component';
 import { AddPenaltyComponent } from './components/admin/penalty/add-penalty/add-penalty.component';
 import { TableListPenaltyComponent } from './components/admin/penalty/table-list-penalty/table-list-penalty.component';
-
+import { TableListInscriptionComponent } from './components/admin/inscription/table-list-inscription/table-list-inscription.component';
+import { AddInscriptionComponent } from './components/admin/inscription/add-inscription/add-inscription.component';
+import { ViewInscriptionComponent } from './components/admin/inscription/view-inscription/view-inscription.component';
+import { VoteAdminComponent } from './components/admin/vote/vote-admin/vote-admin.component';
+import { VoteJuradoComponent } from './components/jurado/vote/vote-jurado/vote-jurado.component';
+import { VoteItemsComponent } from './components/jurado/vote/vote-items/vote-items.component';
 
 //Angular Material
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -47,9 +52,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSortModule} from '@angular/material/sort';
-import { TableListInscriptionComponent } from './components/admin/inscription/table-list-inscription/table-list-inscription.component';
-import { AddInscriptionComponent } from './components/admin/inscription/add-inscription/add-inscription.component';
-import { ViewInscriptionComponent } from './components/admin/inscription/view-inscription/view-inscription.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ResultUserComponent } from './components/user/result/result-user/result-user.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +78,10 @@ import { ViewInscriptionComponent } from './components/admin/inscription/view-in
     TableListInscriptionComponent,
     AddInscriptionComponent,
     ViewInscriptionComponent,
+    VoteAdminComponent,
+    VoteJuradoComponent,
+    VoteItemsComponent,
+    ResultUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,6 +111,9 @@ import { ViewInscriptionComponent } from './components/admin/inscription/view-in
      MatProgressSpinnerModule,
      MatDialogModule,
      MatSortModule,
+     MatGridListModule,
+     MatStepperModule,
+     MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

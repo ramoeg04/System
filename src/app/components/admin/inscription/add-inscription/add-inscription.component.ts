@@ -30,12 +30,14 @@ export class AddInscriptionComponent implements OnInit {
 
   addForm = new FormGroup({
     date: new FormControl('', [Validators.required]),
-    document: new FormControl('', [Validators.required, Validators.minLength(8)],),
+    document: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     firtName: new FormControl('', [Validators.required]),
     id_categoria: new FormControl('', [Validators.required]),
     lastName: new FormControl('', [Validators.required]),
-    id_division: new FormControl('', [Validators.required])
+    reference: new FormControl('', [Validators.required]),
+    id_division: new FormControl('', [Validators.required]),
+
   })
 
   onNoClick(): void {
@@ -101,7 +103,9 @@ export class AddInscriptionComponent implements OnInit {
         document: response.payload.data()['document'],
         email: response.payload.data()['email'],
         id_categoria: response.payload.data()['id_categoria'],
-        lastName: response.payload.data()['lastName']
+        lastName: response.payload.data()['lastName'],
+        reference: response.payload.data()['reference']
+
       })
     })
   }

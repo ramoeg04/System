@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { createUserWithEmailAndPassword, signOut } from 'firebase/auth';
-import { first } from 'rxjs';
+import { signOut } from 'firebase/auth';
 import { LoginData } from '../core/models/login-data';
 
 @Injectable({

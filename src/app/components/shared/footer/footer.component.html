@@ -1,17 +1,13 @@
-<footer>
-    <mat-toolbar class="background">
-        <mat-toolbar-row>
-            <span class="example-spacer"></span>
-            <span class="fontPrincipal">{{cr}}</span>
-            <span class="example-spacer"></span>
-            <span></span>
-        </mat-toolbar-row>
-        <mat-toolbar-row>
-            <span></span>
-            <span class="example-spacer"></span>
-            <img [src]="gp" alt="" class="img-fluid" style="width: 6rem;    margin-left: 5rem;">
-            <span class="example-spacer"></span>
-            <img [src]="csf" alt="" class="img-fluid" style="width: 5rem;">
-        </mat-toolbar-row>
-    </mat-toolbar>
-</footer>
+<mat-grid-list cols="3" rowHeight="100px">
+    <mat-grid-tile colspan="1" rowspan="2"></mat-grid-tile>
+    <mat-grid-tile class="display" colspan="1" rowspan="1">
+        <span class="fontPrincipal">{{cr}}</span>
+
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="2">
+        <!-- <img [src]="csf" alt="" class="img-fluid csf"> -->
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+        <img [src]="gp" alt="" class="img-fluid gp">
+    </mat-grid-tile>
+</mat-grid-list>

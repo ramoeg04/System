@@ -6,12 +6,15 @@ export const baseUrl = `https://www.breakingbadapi.com/api`;
 export const admin = 'Administrar';
 export const votar = 'Votar';
 export const result = 'Resultados';
+export const votarJurado = 'VotarJurados';
+export const resultUser = 'ResultadosUser';
+
 
 //footer
 export const cr = 'Powered By';
 
 //Roles
-export const rol = 'Admin';
+export const rol = '';
 
 ////Admin////
 //Home
@@ -30,6 +33,9 @@ export const homeAdmin = [{
 },{
     nombre: 'Inscripción',
     img: '../../assets/img/Inscripciones.png'
+},{
+    nombre: 'Usuario',
+    img: '../../assets/img/User.png'
 }];
 
 //Login
@@ -43,7 +49,7 @@ export const login = {
     text_pass: "Password",
     text_send: "Enviar",
     text_rol: "Rol",
-    volver: "Inicio",
+    volver: "Volver",
 };
 
 //Add-Edit
@@ -68,12 +74,26 @@ export const inscription = {
     text_id_categoria:"Categoría",
     text_lastName:"Apellido",
     text_id_division: "División",
+    text_reference: "Referencia",
     text_date:"Fecha",
     text_send: "Enviar",
     text_edit: "Editar",
     text_add: "Agregar",
 };
 
+//vote
+//Inscriptions
+export const vote = {
+    error: "Intente Nuevamente",
+    text_tecnica:"Técnica",
+    text_conexion: "Conexión",
+    text_coreografia: "Coreografía",
+    text_dificultad:"Dificultad",
+    text_iMusical:"Interpretación Musical",
+    text_pProyeccion: "Presencia Escénica y Proyección",
+    text_tiempo: "Tiempo",
+    text_send: "Enviar",
+};
 //Alerts
 export const alert = {
     success: "Acción Realizada con Exito",

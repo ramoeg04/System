@@ -26,7 +26,7 @@ export class TableListInscriptionComponent implements OnInit {
   division: any[] = [];
   tablelist: any[] = [];
   dataSource = new MatTableDataSource(this.tablelist);
-  displayedColumns: string[] = ['name', 'lastName', 'categoria', 'division', 'ver', 'editar', 'eliminar'];
+  displayedColumns: string[] = ['reference','name', 'lastName', 'ver', 'editar', 'eliminar'];
   spiner: Boolean = false;
   public loginText = login
   public alert = alert
@@ -54,6 +54,32 @@ export class TableListInscriptionComponent implements OnInit {
         })
       }
     })
+    // this.servicesSystem.list('inscriptions').subscribe(response => {
+    //   if (response.length === 0) {
+    //     this.toastr.warning(this.alert.warning);
+    //   } else {
+    //     console.log({response})
+    //     response.forEach( async(data: any) => {
+    //     const item = data.payload.doc.data();
+    //     console.log({item});
+    //     if (!item) {
+    //       return;
+    //     }
+    //       const category = await item.id_categoria.get();
+    //       const division = await item.id_division.get();
+
+    //       const categoryData = category.data();
+    //       const divisionData = division.data();
+          
+    //       console.log({inscriptions: category.data(), items: division.data(), firstName: categoryData.name});
+    //       this.tablelist.push({
+    //         id: data.payload.doc.id,
+    //         categoria: categoryData,
+    //         division: divisionData})
+    //       this.dataSource.data = this.tablelist.slice(0);
+    //     })
+    //   }
+    // })
   }
 
   load() {

@@ -1,8 +1,64 @@
-<mat-toolbar class="background">
-  <img [src]="csf" alt="" class="img-fluid" style="width: 5rem;">
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="sesion()" routerLink=''>
-      <mat-icon>person</mat-icon>
-    </button>
-  </mat-toolbar>
+<mat-grid-list cols="3" rowHeight="50px">
+    <mat-grid-tile colspan="1" rowspan="2">
+        <img [src]="csf" alt="" class="img-fluid csf">
 
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1"></mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+        <button mat-icon-button class="example-icon cancel" aria-label="Example icon-button with share icon"
+            (click)="logout()">
+            <mat-icon>person</mat-icon>
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="1">
+        <!-- ADMIN -->
+        <mat-button-toggle-group appearance="legacy" *ngIf="rolUser === 'Admin'" [(ngModel)]="fontStyle">
+            <mat-button-toggle class="fontPrincipal" [value]="admin">{{admin}}</mat-button-toggle>
+            <mat-button-toggle class="fontPrincipal" [value]="votar">{{votar}}</mat-button-toggle>
+            <mat-button-toggle class="fontPrincipal" [value]="result">{{result}}</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <!-- USER -->
+        <mat-button-toggle-group appearance="legacy" *ngIf="rolUser === 'User'" [(ngModel)]="fontStyle">
+            <mat-button-toggle class="fontPrincipal" [value]="resultUser">{{result}}</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <!-- JURAOD -->
+        <mat-button-toggle-group appearance="legacy" *ngIf="rolUser === 'Jurado'" [(ngModel)]="fontStyle">
+            <mat-button-toggle class="fontPrincipal" [value]="votarJurado">{{votar}}</mat-button-toggle>
+        </mat-button-toggle-group>
+    </mat-grid-tile>
+
+</mat-grid-list>
+
+<mat-grid-list cols="3" rowHeight="50px" *ngIf="rolUser == undefined">
+    <mat-grid-tile colspan="1" rowspan="2">
+        <img [src]="csf" alt="" class="img-fluid csf">
+
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1"></mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+        <button mat-icon-button class="example-icon cancel" aria-label="Example icon-button with share icon"
+            (click)="logout()">
+            <mat-icon>person</mat-icon>
+        </button>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<div *ngIf="fontStyle === 'Administrar'">
+    <app-admin-home></app-admin-home>
+</div>
+<div *ngIf="fontStyle === 'Votar'">
+    <app-vote-admin></app-vote-admin>
+</div>
+<div *ngIf="fontStyle === 'Resultados'">
+
+</div>
+
+<div *ngIf="fontStyle === 'VotarJurados'">
+    <app-vote-jurado></app-vote-jurado>
+</div>
+
+<div *ngIf="fontStyle === 'ResultadosUser'">
+    <app-result-user></app-result-user>
+</div>

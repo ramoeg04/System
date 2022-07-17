@@ -1,0 +1,17 @@
+.spacer {
+    display: flex;
+    justify-content: space-between;;
+}
+
+.penal{
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+}
+
+.button{
+    text-align: center;
+    font-size: 12px;
+    color: white;
+    margin-right: 1em;
+}
