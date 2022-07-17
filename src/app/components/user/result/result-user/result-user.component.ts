@@ -1,8 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { alert, login } from 'src/app/core/global';
 import { ServicesSystemService } from 'src/app/services/services-system.service';
@@ -13,63 +9,42 @@ import { ServicesSystemService } from 'src/app/services/services-system.service'
   styleUrls: ['./result-user.component.scss']
 })
 export class ResultUserComponent implements OnInit {
-  @ViewChild(MatPaginator) set matPaginator(paginator: MatPaginator) {
-    this.dataSource.paginator = paginator;
-  }
 
-  @ViewChild(MatSort) set matSort(sort: MatSort) {
-    this.dataSource.sort = sort;
-  }
   category: any[] = [];
   division: any[] = [];
-  tablelist: any[] = [];
-  dataSource = new MatTableDataSource(this.tablelist);
-  displayedColumns: string[] = ['reference', 'name', 'lastName'];
-  spiner: Boolean = false;
-  public loginText = login
-  public alert = alert
+  votes: any[] = [];
+  vote: any[] = [];
+  public loginText = login;
+  public alert = alert;
+  total: number = 0;
 
   constructor(public servicesSystem: ServicesSystemService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.tablelist);
-    this.tableList();
+    this.getVotes();
   }
 
-  tableList() {
+  getVotes() {
     this.servicesSystem.list('vote').subscribe(response => {
       if (response.length === 0) {
         this.toastr.warning(this.alert.warning);
       } else {
         response.forEach((data: any) => {
-          this.tablelist.push({
+          this.vote.push({
             id: data.payload.doc.id,
             ...data.payload.doc.data()
           })
-          console.log(this.tablelist)
-          this.dataSource.data = [];
-          this.dataSource.data = this.tablelist.slice(0);
+          console.log(this.vote, this.vote[0].id_inscriptions.firtName)
         })
       }
     })
   }
-  load() {
-    this.servicesSystem.list('vote').subscribe(response => {
-      this.tablelist = [];
-      response.forEach((data: any) => {
-        this.tablelist.push({
-          id: data.payload.doc.id,
-          ...data.payload.doc.data()
-        })
-      });
-      this.dataSource.data = [];
-      this.dataSource.data = this.tablelist.slice(0);
-    })
-  }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+
+
+
+
+
+
 
 }

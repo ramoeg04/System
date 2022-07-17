@@ -14,15 +14,19 @@ import { ServicesSystemService } from 'src/app/services/services-system.service'
 })
 export class VoteItemsComponent implements OnInit {
   public user: string = '';
+  public id: string = '';
+
   public p1: number = 0;
   public p2: number = 0;
   public p3: number = 0;
   public p4: number = 0;
-  public id: string = '';
+  public total: number = 0;
+
   category: any[] = [];
   division: any[] = [];
   votes: any[] = [];
   voteId: any[] = [];
+
   public vote = vote;
   public add = inscription;
   public alert = alert;
@@ -32,9 +36,9 @@ export class VoteItemsComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.authService.getId();
     this.get();
+    this.getvotes()
     this.getCategory();
     this.getDivision();
-    this.getvotes()
   }
 
   addForm = new FormGroup({
@@ -107,45 +111,12 @@ export class VoteItemsComponent implements OnInit {
             ...data.payload.doc.data()
           })
         })
-        if (this.voteId = this.votes.filter((item: any) => item.valid === "true" )) {
-        this.id = this.voteId[0].id
+        if (this.voteId = this.votes.filter((item: any) => item.valid === "true")) {
+          this.id = this.voteId[0].id
         }
-
       }
     })
   }
-
-  // getVote() {
-  //   this.servicesSystem.list('vote').subscribe(response => {
-  //     if (response.length === 0) {
-  //       this.toastr.warning(this.alert.warning);
-  //     } else {
-  //       response.forEach((data: any) => {
-  //         this.votes.push({
-  //           id: data.payload.doc.id,
-  //           ...data.payload.doc.data()
-  //         })
-  //       })
-  //       if (this.voteId = this.votes.filter((item: any) => item.id_inscriptions === this.data)) {
-  //         let tiempo = this.voteId[0].tiempo
-  //         let conexion = this.voteId[0].conexion
-  //         let dificultad = this.voteId[0].dificultad
-  //         let iMusical = this.voteId[0].iMusical
-  //         let pProyeccion = this.voteId[0].pProyeccion
-  //         let tecnica = this.voteId[0].tecnica
-  //         let coreografia = this.voteId[0].coreografia
-  //         let p1 = this.voteId[0].p1
-  //         let p2 = this.voteId[0].p2
-  //         let p3 = this.voteId[0].p3
-  //         let p4 = this.voteId[0].p4
-  //         let sum = tiempo + conexion + dificultad + iMusical + pProyeccion + tecnica + coreografia
-  //         let rest = p1+p2+p3+p4
-  //         this.total = sum - rest
-  //         console.log( this.total);
-  //       }
-  //     }
-  //   })
-  // }
 
   get() {
     this.servicesSystem.get(this.data, 'inscriptions').subscribe(response => {
@@ -162,6 +133,39 @@ export class VoteItemsComponent implements OnInit {
     })
   }
 
+  getVote() {
+    this.servicesSystem.list('vote').subscribe(response => {
+
+      if (response.length === 0) {
+        this.toastr.warning(this.alert.warning);
+      } else {
+        response.forEach((data: any) => {
+          this.votes.push({
+            id: data.payload.doc.id,
+            ...data.payload.doc.data()
+          })
+        })
+        if (this.voteId = this.votes.filter((item: any) => item.id_inscriptions === this.data)) {
+          let tiempo = this.votes[0].tiempo
+          let conexion = this.votes[0].conexion
+          let dificultad = this.votes[0].dificultad
+          let iMusical = this.votes[0].iMusical
+          let pProyeccion = this.votes[0].pProyeccion
+          let tecnica = this.votes[0].tecnica
+          let coreografia = this.votes[0].coreografia
+          let p1 = this.votes[0].p1
+          let p2 = this.votes[0].p2
+          let p3 = this.votes[0].p3
+          let p4 = this.votes[0].p4
+          let sum = tiempo + conexion + dificultad + iMusical + pProyeccion + tecnica + coreografia
+          let rest = p1 + p2 + p3 + p4
+          this.total = sum - rest
+          console.log(this.total);
+        }
+      }
+    })
+  }
+
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -173,11 +177,24 @@ export class VoteItemsComponent implements OnInit {
     data.p2 = this.p2
     data.p3 = this.p3
     data.p4 = this.p4
+
     if (this.voteForm.valid) {
       this.servicesSystem.edit(this.id, data, 'vote').then(() => {
         this.onNoClick();
-        // this.getVote();
         this.toastr.success(this.alert.success);
+        this.getVote();
+        setTimeout(() => {
+          console.log(this.total);
+        }, 3000);
+
+        setTimeout(() => {
+          data.total = this.total
+          this.servicesSystem.edit(this.id, data, 'vote').then(() => {
+            console.log('acept');
+          }).catch(error => {
+            console.log(error);
+          })
+        }, 3000);
       }).catch(error => {
         this.toastr.error(this.alert.error);
         this.addForm.reset()
@@ -189,7 +206,6 @@ export class VoteItemsComponent implements OnInit {
   penals(value: number, name: string) {
     if (name === '1') {
       this.p1 += value
-      console.log(this.p1)
     } else if (name === '2') {
       this.p2 = value
     } else if (name === '3') {

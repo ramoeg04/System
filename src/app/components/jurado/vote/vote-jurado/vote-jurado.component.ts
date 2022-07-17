@@ -14,11 +14,17 @@ import { VoteItemsComponent } from '../vote-items/vote-items.component';
 })
 export class VoteJuradoComponent implements OnInit {
 
+
   constructor(public dialog: MatDialog, private servicesSystem: ServicesSystemService, private toastr: ToastrService, private authService: AuthService) { }
   public alert = alert;
   tablelist: any[] = [];
+  votes: any[] = [];
+  voteId: any[] = [];
+  voteT: any[] = [];
   user: string = 'NADA'
-  vote:string = ''
+  vote: string = ''
+  id: string = '';
+  public total: number = 0;
 
   ngOnInit(): void {
     this.tableList();
@@ -47,7 +53,7 @@ export class VoteJuradoComponent implements OnInit {
         data: data,
       });
       dialogRef.afterClosed().subscribe(result => {
-        console.log(result);
+        // console.log(result);
       });
     } else {
       console.log("Error");
