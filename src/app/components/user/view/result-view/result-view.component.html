@@ -1,0 +1,105 @@
+<!-- <mat-list role="" fxLayout="row"> -->
+
+    <!-- <div class="mt-2 horizontal" > -->
+        <!-- <mat-list-item role="listitem"> {{voteText.text_jurado}} </mat-list-item>
+        <mat-list-item role="listitem"> {{voteText.text_conexion}}</mat-list-item>
+        <mat-list-item role="listitem"> {{voteText.text_coreografia}}</mat-list-item>
+        <mat-list-item role="listitem"> {{voteText.text_dificultad}}</mat-list-item>
+        <mat-list-item role="listitem"> {{voteText.text_iMusical}}</mat-list-item>
+        <mat-list-item role="listitem"> {{voteText.text_pProyeccion}}</mat-list-item>
+        <mat-list-item role="listitem"> {{voteText.text_tiempo}}</mat-list-item>
+        <mat-list-item role="listitem"> {{voteText.text_tecnica}} </mat-list-item>
+        <mat-list-item role="listitem"> {{voteText.text_p1}} </mat-list-item>
+        <mat-list-item role="listitem"> {{voteText.text_p2}} </mat-list-item>
+        <mat-list-item role="listitem"> {{voteText.text_p3}} </mat-list-item>
+        <mat-list-item role="listitem"> {{voteText.text_p4}} </mat-list-item> -->
+    <!-- </div> -->
+
+    <!-- <div *ngFor="let id of voteId" class="mt-2 horizontal"> -->
+        <!-- <mat-list-item role="listitem">{{id.user}}</mat-list-item>
+        <mat-list-item role="listitem">{{id.conexion}}</mat-list-item>
+        <mat-list-item role="listitem">{{id.coreografia}}</mat-list-item>
+        <mat-list-item role="listitem">{{id.dificultad}}</mat-list-item>
+        <mat-list-item role="listitem">{{id.iMusical}}</mat-list-item>
+        <mat-list-item role="listitem">{{id.pProyeccion}}</mat-list-item>
+        <mat-list-item role="listitem">{{id.tecnica}}</mat-list-item>
+        <mat-list-item role="listitem">{{id.tiempo}}</mat-list-item>
+        <mat-list-item role="listitem">{{id.p1}}</mat-list-item>
+        <mat-list-item role="listitem">{{id.p2}}</mat-list-item>
+        <mat-list-item role="listitem">{{id.p3}}</mat-list-item>
+        <mat-list-item role="listitem">{{id.p4}}</mat-list-item>
+        <mat-list-item role="listitem">{{id.total}}</mat-list-item> -->
+    <!-- </div> -->
+
+<!-- </mat-list> -->
+
+<mat-toolbar class="margin mt-5 fontPrincipal background">
+    <mat-form-field appearance="legacy">
+        <mat-icon class="search">search</mat-icon>
+        <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+    <span class="example-spacer"></span>
+    <span>Total: {{totalVote}}</span>
+</mat-toolbar>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 margin" matSort>
+    <ng-container matColumnDef="jurado">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{voteText.text_jurado}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.user}} </td>
+    </ng-container>
+    <ng-container matColumnDef="conexion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{voteText.text_conexion}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.conexion}} </td>
+    </ng-container>
+    <ng-container matColumnDef="coreo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{voteText.text_coreografia}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.coreografia}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dificultad">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{voteText.text_dificultad}}</th>
+        <td mat-cell *matCellDef="let element"> {{element.dificultad}} </td>
+    </ng-container>
+    <ng-container matColumnDef="iMusical">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{voteText.text_iMusical}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.iMusical}} </td>
+    </ng-container>
+    <ng-container matColumnDef="pProyection">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{voteText.text_pProyeccion}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.pProyeccion}} </td>
+    </ng-container>
+    <ng-container matColumnDef="tecnica">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{voteText.text_tecnica}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.tecnica}} </td>
+    </ng-container>
+    <ng-container matColumnDef="tiempo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{voteText.text_tiempo}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.tiempo}} </td>
+    </ng-container>
+    <ng-container matColumnDef="p1">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{voteText.text_p1}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.p1}} </td>
+    </ng-container>
+    <ng-container matColumnDef="p2">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{voteText.text_p2}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.p2}} </td>
+    </ng-container>
+    <ng-container matColumnDef="p3">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{voteText.text_p3}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.p3}} </td>
+    </ng-container>
+    <ng-container matColumnDef="p4">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{voteText.text_p4}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.p4}} </td>
+    </ng-container>
+    <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
+        <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+
+<mat-paginator class="margin" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+</mat-paginator>

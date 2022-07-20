@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ViewInscriptionComponent } from '../../inscription/view-inscription/view-inscription.component';
+import { VoteSelectComponent } from '../vote-select/vote-select.component';
 
 @Component({
   selector: 'app-vote-admin',
@@ -34,7 +35,6 @@ export class VoteAdminComponent implements OnInit {
   public id: any;
 
   constructor(public dialog: MatDialog, public servicesSystem: ServicesSystemService, private toastr: ToastrService) { }
-
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.tablelist);
@@ -126,18 +126,21 @@ export class VoteAdminComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  vote(data: string, valid: boolean) {
-    let addForm = new FormGroup({
-      valid: new FormControl(`${valid}`, [Validators.required]),
-      id_inscriptions: new FormControl(`${data}`, [Validators.required])
-    })
 
-    this.servicesSystem.add(addForm.value, 'vote').then(() => {
-      this.toastr.success(this.alert.success);
-    }).catch(error => {
-      this.toastr.error(this.alert.error);
-      console.log(error);
-    })
-    // console.log(data, valid);
+  vote(data: string, value: string) {
+    if (data != null) {
+      const dialogRef = this.dialog.open(VoteSelectComponent, {
+        data: { data:data,
+        value : value },
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        this.load();
+      });
+    } else {
+      console.log("Error");
+      this.toastr.warning(this.alert.warning);
+
+    }
   }
+
 }

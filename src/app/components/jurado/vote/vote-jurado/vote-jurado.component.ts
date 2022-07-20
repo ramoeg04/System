@@ -54,6 +54,7 @@ export class VoteJuradoComponent implements OnInit {
       });
       dialogRef.afterClosed().subscribe(result => {
         // console.log(result);
+        this.tableList();
       });
     } else {
       console.log("Error");

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { admin, alert, csf, csm, result, resultUser, rol, votar, votarJurado } from 'src/app/core/global';
+import { admin, alert, csf, csm, result, resultGUser, resultUser, rol, votar, votarJurado } from 'src/app/core/global';
 import { AuthService } from '../../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -19,6 +19,7 @@ export class ToolbarComponent implements OnInit {
   public result = result;
   public votarJurado = votarJurado;
   public resultUser = resultUser;
+  public resultGUser = resultGUser;
   public alert = alert;
 
   fontStyle?: any;

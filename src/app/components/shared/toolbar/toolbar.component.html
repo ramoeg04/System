@@ -5,8 +5,7 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="1" rowspan="1"></mat-grid-tile>
     <mat-grid-tile colspan="1" rowspan="1">
-        <button mat-icon-button class="example-icon cancel" aria-label="Example icon-button with share icon"
-            (click)="logout()">
+        <button mat-icon-button class="example-icon cancel" aria-label="Example icon-button with share icon" (click)="logout()">
             <mat-icon>person</mat-icon>
         </button>
     </mat-grid-tile>
@@ -21,6 +20,7 @@
         <!-- USER -->
         <mat-button-toggle-group appearance="legacy" *ngIf="rolUser === 'User'" [(ngModel)]="fontStyle">
             <mat-button-toggle class="fontPrincipal" [value]="resultUser">{{result}}</mat-button-toggle>
+            <mat-button-toggle class="fontPrincipal" [value]="resultGUser">{{resultGUser}}</mat-button-toggle>
         </mat-button-toggle-group>
 
         <!-- JURAOD -->
@@ -38,8 +38,7 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="1" rowspan="1"></mat-grid-tile>
     <mat-grid-tile colspan="1" rowspan="1">
-        <button mat-icon-button class="example-icon cancel" aria-label="Example icon-button with share icon"
-            (click)="logout()">
+        <button mat-icon-button class="example-icon cancel" aria-label="Example icon-button with share icon" (click)="logout()">
             <mat-icon>person</mat-icon>
         </button>
     </mat-grid-tile>
@@ -61,4 +60,8 @@
 
 <div *ngIf="fontStyle === 'ResultadosUser'">
     <app-result-user></app-result-user>
+</div>
+
+<div *ngIf="fontStyle === 'Resultados Generales'">
+ <app-result-general></app-result-general>
 </div>

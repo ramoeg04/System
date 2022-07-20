@@ -8,6 +8,7 @@ export const votar = 'Votar';
 export const result = 'Resultados';
 export const votarJurado = 'VotarJurados';
 export const resultUser = 'ResultadosUser';
+export const resultGUser = 'Resultados Generales';
 
 
 //footer
@@ -85,6 +86,7 @@ export const inscription = {
 //Inscriptions
 export const vote = {
     error: "Intente Nuevamente",
+    text_jurado:"Jurado",
     text_tecnica:"Técnica",
     text_conexion: "Conexión",
     text_coreografia: "Coreografía",
@@ -93,7 +95,12 @@ export const vote = {
     text_pProyeccion: "Presencia Escénica y Proyección",
     text_tiempo: "Tiempo",
     text_send: "Enviar",
+    text_p1:"Penalización 1",
+    text_p2:"Penalización 2",
+    text_p3:"Penalización 3",
+    text_p4:"Penalización 4"
 };
+
 //Alerts
 export const alert = {
     success: "Acción Realizada con Exito",

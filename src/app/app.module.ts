@@ -37,6 +37,9 @@ import { ViewInscriptionComponent } from './components/admin/inscription/view-in
 import { VoteAdminComponent } from './components/admin/vote/vote-admin/vote-admin.component';
 import { VoteJuradoComponent } from './components/jurado/vote/vote-jurado/vote-jurado.component';
 import { VoteItemsComponent } from './components/jurado/vote/vote-items/vote-items.component';
+import { ResultUserComponent } from './components/user/result/result-user/result-user.component';
+import { VoteSelectComponent } from './components/admin/vote/vote-select/vote-select.component';
+import { ResultViewComponent } from './components/user/view/result-view/result-view.component';
 
 //Angular Material
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -55,7 +58,10 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { ResultUserComponent } from './components/user/result/result-user/result-user.component';
+import {MatListModule} from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
+import { ResultGeneralComponent } from './components/user/result/result-general/result-general.component'
+
 
 @NgModule({
   declarations: [
@@ -82,6 +88,9 @@ import { ResultUserComponent } from './components/user/result/result-user/result
     VoteJuradoComponent,
     VoteItemsComponent,
     ResultUserComponent,
+    VoteSelectComponent,
+    ResultViewComponent,
+    ResultGeneralComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,7 +122,9 @@ import { ResultUserComponent } from './components/user/result/result-user/result
      MatSortModule,
      MatGridListModule,
      MatStepperModule,
-     MatCheckboxModule
+     MatCheckboxModule,
+     MatListModule,
+     MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
